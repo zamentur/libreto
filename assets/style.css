@@ -101,7 +101,7 @@ header u {
 	border-bottom: 1px solid;
 }
 
-header a {
+header .full a {
 	border-bottom: 1px solid #ccc;
 }
 
@@ -240,7 +240,7 @@ header .reduced {
 	font-size: 1.8rem;
 }
 
-header .site_name {
+header .instance_name {
 	position: absolute;
 	bottom: 1rem;
 	left: 1rem;

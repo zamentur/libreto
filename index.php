@@ -20,22 +20,20 @@ endif;
 </head>
 
 <body>
-  <div id="container">
-    <article>
-      <?php
-      $markdown = file_get_contents("readme.md");
-      $Parsedown = new ParsedownExtra();
-      $html = $Parsedown->setBreaksEnabled(true)->text($markdown);
-      echo $html;
-      ?>
-      <div class="create_libreto">
-        <form action="" method="POST">
-          <input type="input" autofocus="autofocus" onfocus="this.select()" name="new_name" />
-          <button type="submit" />Créer un Libreto</button>
-        </form>
-      </div>
-    </article>
-  </div>
+  <article>
+    <?php
+    $markdown = file_get_contents("assets/texts/homepage.md");
+    $Parsedown = new ParsedownExtra();
+    $html = $Parsedown->setBreaksEnabled(true)->text($markdown);
+    echo $html;
+    ?>
+    <div class="create_libreto">
+      <form action="" method="POST">
+        <input type="input" autofocus="autofocus" onfocus="this.select()" name="new_name" />
+        <button type="submit" />Créer un Libreto</button>
+      </form>
+    </div>
+  </article>
 </body>
 
 </html>

@@ -43,10 +43,10 @@ function get_pads_list() {
 }
 
 function get_url($name, $format = "pad") {
-  global $pads_host, $site_prefix, $pads_params, $libreto_name;
+  global $pads_host, $instance_name, $pads_params, $libreto_name;
 
   $server = "http://" . $_SERVER["SERVER_NAME"];
-  $pads_prefix = "libreto+" . urlencode($libreto_name) . "+";
+  $pads_prefix = urlencode(strtolower($instance_name)) . "+" . urlencode($libreto_name) . "+";
   $pad_name =  $pads_prefix . urlencode($name);
   $css_name = $pads_prefix . urlencode("style.css");
   $pad_url = $pads_host . "/p/" . $pad_name;

@@ -1,0 +1,54 @@
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-Medium.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-Medium.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-Medium.otf") format("opentype");
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-MediumItalic.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-MediumItalic.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-MediumItalic.otf") format("opentype");
+    font-weight:normal;
+    font-style:italic;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-Bold.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-Bold.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-Bold.otf") format("opentype");
+    font-weight:bold;
+    font-style:normal;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-BoldItalic.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-BoldItalic.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-BoldItalic.otf") format("opentype");
+    font-weight:bold;
+    font-style:italic;
+}
+
+body {
+  font-family: 'HKGrotesk';
+  font-size: 16px;
+  padding: 1rem;
+  max-width: 40rem;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+blockquote {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}

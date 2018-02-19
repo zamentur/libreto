@@ -1,0 +1,30 @@
+{
+    "name": "catoth/html2opendocument",
+    "description": "Converting simple HTML to Opendocument Text (ODT) or Spreadsheets (ODS)",
+    "type": "library",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "keywords": [
+        "opendocument",
+        "html",
+        "odt",
+        "ods"
+    ],
+    "authors": [
+        {
+            "name": "Tobias Hößl",
+            "email": "tobias@hoessl.eu"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "ext-zip": "*",
+        "ext-dom": "*",
+        "ezyang/htmlpurifier": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "CatoTH\\HTML2OpenDocument\\": ""
+        }
+    }
+}

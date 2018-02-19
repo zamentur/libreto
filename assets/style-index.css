@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+
+/* @font-face declarations */
+
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-Medium.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-Medium.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-Medium.otf") format("opentype");
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-MediumItalic.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-MediumItalic.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-MediumItalic.otf") format("opentype");
+    font-weight:normal;
+    font-style:italic;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-Bold.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-Bold.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-Bold.otf") format("opentype");
+    font-weight:bold;
+    font-style:normal;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-BoldItalic.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-BoldItalic.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-BoldItalic.otf") format("opentype");
+    font-weight:bold;
+    font-style:italic;
+}
+
+@font-face {
+	font-family: 'JeanLucWeb-Bold';
+		src: url('fonts/jeanluc/jeanlucweb-bold.eot');
+		src: local('☺'), url("fonts/jeanluc/jeanlucweb-bold.woff") format("woff"), url("fonts/jeanluc/jeanlucweb-bold.otf") format("opentype"), url("fonts/jeanluc/jeanlucweb-bold#webfontup15foyj") format("svg");
+}
+
+@font-face {
+	font-family: 'JeanLucWeb-Thin';
+		src: url('fonts/jeanluc/jeanlucweb-bold.eot');
+		src: local('☺'), url("fonts/jeanluc/jeanlucweb-thin.woff") format("woff"), url("fonts/jeanluc/jeanlucweb-thin.otf") format("opentype"), url("fonts/jeanluc/jeanlucweb-thin#webfontdsa4toug") format("svg");
+}
+
+@font-face {
+	font-family: 'spungold';
+		src: url('fonts/spungold/spungold.eot');
+		src: local('☺'), url("fonts/spungold/spungold.woff") format("woff"), url("fonts/spungold/spungold.otf") format("opentype");
+}
+
+
+/*
+The Jean-Luc typeface was designed and made by Atelier Carvalho Bernau on the occasion of the 80th birthday of Jean-Luc Godard. It is available free of charge from http://www.carvalho-bernau.com/jlg/
+
+Jean-Luc typeface Copyright (c) 2010 Atelier Carvalho Bernau
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "HKGrotesk";
+  font-size: 18pt;
+}
+
+p {
+	margin: 0;
+	margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: #ccc;
+}
+
+h1 {
+	display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+}
+
+ul {
+	margin-bottom: 1rem;
+}
+
+li {
+	list-style-type: "– ";
+	margin-left: 1.1rem;
+	list-style-position: outside;
+}
+
+u {
+	text-decoration: none;
+	border-bottom: 1px solid;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	overflow: auto;
+	top: 0;
+	left: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+article {
+  max-width: 35rem;
+  padding: 6rem;
+}
+
+.create_libreto {
+  margin-bottom: 6rem;
+}
+
+input[type=input] {
+	font-family: "HKGrotesk";
+	font-size: 18pt;
+	background: none;
+	border: 1px solid #ccc;
+	padding: 1rem 2rem;
+	width: 100%;
+	margin: 1rem 0;
+}
+
+button[type=submit] {
+	font-family: "HKGrotesk";
+	font-size: 18pt;
+	background: #eee;
+	border: 1px solid #ccc;
+	padding: 1rem 2rem;
+	width: 100%;
+	margin: 1rem 0;
+	cursor: pointer;
+}

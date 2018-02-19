@@ -1,0 +1,276 @@
+@charset "UTF-8";
+
+
+/* @font-face declarations */
+
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-Medium.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-Medium.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-Medium.otf") format("opentype");
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-MediumItalic.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-MediumItalic.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-MediumItalic.otf") format("opentype");
+    font-weight:normal;
+    font-style:italic;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-Bold.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-Bold.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-Bold.otf") format("opentype");
+    font-weight:bold;
+    font-style:normal;
+}
+@font-face {
+	font-family: 'HKGrotesk';
+		src: url('fonts/hkgrotesk/HKGrotesk-BoldItalic.eot');
+		src: local('☺'), url("fonts/hkgrotesk/HKGrotesk-BoldItalic.woff") format("woff"), url("fonts/hkgrotesk/HKGrotesk-BoldItalic.otf") format("opentype");
+    font-weight:bold;
+    font-style:italic;
+}
+
+@font-face {
+	font-family: 'JeanLucWeb-Bold';
+		src: url('fonts/jeanluc/jeanlucweb-bold.eot');
+		src: local('☺'), url("fonts/jeanluc/jeanlucweb-bold.woff") format("woff"), url("fonts/jeanluc/jeanlucweb-bold.otf") format("opentype"), url("fonts/jeanluc/jeanlucweb-bold#webfontup15foyj") format("svg");
+}
+
+@font-face {
+	font-family: 'JeanLucWeb-Thin';
+		src: url('fonts/jeanluc/jeanlucweb-bold.eot');
+		src: local('☺'), url("fonts/jeanluc/jeanlucweb-thin.woff") format("woff"), url("fonts/jeanluc/jeanlucweb-thin.otf") format("opentype"), url("fonts/jeanluc/jeanlucweb-thin#webfontdsa4toug") format("svg");
+}
+
+@font-face {
+	font-family: 'spungold';
+		src: url('fonts/spungold/spungold.eot');
+		src: local('☺'), url("fonts/spungold/spungold.woff") format("woff"), url("fonts/spungold/spungold.otf") format("opentype");
+}
+
+/*
+The Jean-Luc typeface was designed and made by Atelier Carvalho Bernau on the occasion of the 80th birthday of Jean-Luc Godard. It is available free of charge from http://www.carvalho-bernau.com/jlg/
+
+Jean-Luc typeface Copyright (c) 2010 Atelier Carvalho Bernau
+*/
+
+body > pre {
+    z-index: 999;
+    position: absolute;
+    background: wheat;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "HKGrotesk";
+  font-size: 1.4rem;
+}
+
+p {
+	margin: 0;
+	margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+header ul {
+	margin: 1rem;
+}
+header li {
+	list-style-type: "– ";
+	margin-left: 1.1rem;
+	list-style-position: outside;
+}
+
+header u {
+	text-decoration: none;
+	border-bottom: 1px solid;
+}
+
+header a {
+	border-bottom: 1px solid #ccc;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+header {
+  flex: 2;
+	padding: 1rem;
+	padding-top: 3rem;
+	overflow-y: auto;
+	overflow-x: hidden;
+	z-index: 2;
+	border-right: 1px solid #ccc;
+	position: relative;
+}
+
+nav {
+	flex: 1;
+	border-right: 1px solid #ccc;
+	flex-direction: column;
+	display: flex;
+}
+
+article {
+  flex: 3;
+	z-index: 1;
+}
+
+article.loading iframe {
+	opacity: 0;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav ul {
+	padding: 0;
+	overflow: auto;
+}
+
+nav li {
+	font-family: 'spungold';
+	font-size: 1.2rem;
+	padding: 1rem;
+	border-bottom: 1px solid #ccc;
+}
+
+nav li.active a {
+	border-bottom: 1px solid;
+}
+
+nav li.settings {
+	background-color: #ccc;
+	border-bottom: 1px solid #B3B3B3;
+}
+
+nav li.settings:last-child {
+	border-bottom: 1px solid #ccc;
+}
+
+nav ul.menu {
+	flex: 1;
+}
+
+nav ul.helpers {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin-top: -1px;
+}
+
+nav ul.helpers {
+	display: flex;
+}
+
+nav ul.helpers li {
+	flex: 1;
+}
+
+nav ul.helpers li {
+	border: 0;
+	border-right: 1px solid #ccc;
+}
+
+nav ul.helpers li:last-child {
+	border:0;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+header .colophon {
+	font-size: .8rem;
+	display: flex;
+}
+
+header .colophon > div {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+header .colophon > div:last-child {
+    margin-right: 0;
+}
+
+header.open div.reduced {
+	display: none;
+}
+
+header.close div.full {
+	display: none;
+}
+
+header.close {
+	flex: none;
+}
+
+header.close div {
+	width: 2rem;
+}
+
+header .reduced {
+	font-family: "JeanLucWeb-Thin";
+	font-size: 1.8rem;
+}
+
+header .site_name {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+	margin: 0;
+	transform: translate(-1%, 100%) rotate(-90deg);
+	transform-origin: 0 0;
+	white-space: nowrap;
+}
+header .libreto_name {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  margin: 0;
+  transform: translate(-51%, -50%) rotate(-90deg);
+  transform-origin: 50% 0;
+	white-space: nowrap;
+}
+
+header > div > .switch {
+  position: absolute;
+  top: .5rem;
+  left: 1rem;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: 2rem;
+  height: 2.5rem;
+  font-family: "JeanLucWeb-Thin";
+  font-size: 2.5rem;
+  line-height: 0;
+  cursor: pointer;
+}

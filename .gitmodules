@@ -1,0 +1,3 @@
+[submodule "assets/html2opendocument"]
+	path = assets/html2opendocument
+	url = https://github.com/CatoTH/html2opendocument.git

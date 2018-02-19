@@ -3,7 +3,7 @@ session_start();
 
 require_once './config.php';
 require_once './assets/parsedown/Parsedown.php';
-require_once './assets/parsedown/ParsedownExtra.php';
+require_once './assets/parsedown-extra/ParsedownExtra.php';
 require_once './assets/html2opendocument/Base.php';
 require_once './assets/html2opendocument/Text.php';
 require_once './assets/htmlpurifier/library/HTMLPurifier.auto.php';

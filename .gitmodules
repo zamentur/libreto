@@ -7,3 +7,6 @@
 [submodule "assets/parsedown"]
 	path = assets/parsedown
 	url = https://github.com/erusev/parsedown.git
+[submodule "assets/parsedown-extra"]
+	path = assets/parsedown-extra
+	url = https://github.com/erusev/parsedown-extra.git

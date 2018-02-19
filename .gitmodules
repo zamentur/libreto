@@ -1,3 +1,9 @@
 [submodule "assets/html2opendocument"]
 	path = assets/html2opendocument
 	url = https://github.com/CatoTH/html2opendocument.git
+[submodule "assets/htmlpurifier"]
+	path = assets/htmlpurifier
+	url = https://github.com/ezyang/htmlpurifier.git
+[submodule "assets/parsedown"]
+	path = assets/parsedown
+	url = https://github.com/erusev/parsedown.git

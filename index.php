@@ -1,5 +1,8 @@
 <?php
 include('snippets/functions.php');
+$user_language = get_user_language();
+$translation = load_translation_file();
+
 if(isset($_POST['new_name'])):
   if($new_name = $_POST['new_name']) :
     header('Location: ' . 'http://' . $_SERVER["SERVER_NAME"] . '/' . urlencode($new_name) );
@@ -19,7 +22,7 @@ endif;
   <link rel="stylesheet" href="/assets/style-index.css">
 </head>
 
-<body>
+<body class="current-lang-<?= get_user_language() ?>">
   <article>
     <?php
     $markdown = file_get_contents("assets/texts/homepage.md");
@@ -30,7 +33,7 @@ endif;
     <div class="create_libreto">
       <form action="" method="POST">
         <input type="input" autofocus="autofocus" onfocus="this.select()" name="new_name" />
-        <button type="submit" />Créer un Libreto</button>
+        <button type="submit" /><?= localize("create-libreto") ?></button>
       </form>
     </div>
   </article>

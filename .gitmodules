@@ -10,3 +10,6 @@
 [submodule "assets/parsedown-extra"]
 	path = assets/parsedown-extra
 	url = https://github.com/erusev/parsedown-extra.git
+[submodule "assets/spyc"]
+	path = assets/spyc
+	url = https://github.com/mustangostang/spyc.git

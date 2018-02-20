@@ -20,6 +20,8 @@ if(isset($_GET['mode'])):
 endif;
 
 
+$user_language = get_user_language();
+$translation = load_translation_file();
 $custom_css = false;
 $libreto_name = get_libreto_name();
 $pads_list = get_pads_list();

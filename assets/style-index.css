@@ -152,3 +152,14 @@ button[type=submit] {
 	cursor: pointer;
 	border-radius: 2rem;
 }
+
+div[class^="lang-"] {
+	display: none;
+}
+.current-lang-fr .lang-fr {
+	display: block;
+}
+
+.current-lang-en .lang-en {
+	display: block;
+}

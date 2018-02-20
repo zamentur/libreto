@@ -7,6 +7,7 @@ require_once './assets/parsedown-extra/ParsedownExtra.php';
 require_once './assets/html2opendocument/Base.php';
 require_once './assets/html2opendocument/Text.php';
 require_once './assets/htmlpurifier/library/HTMLPurifier.auto.php';
+require_once './assets/spyc/Spyc.php';
 
 $Purifier = new HTMLPurifier();
 $Parsedown = new ParsedownExtra();
@@ -161,13 +162,31 @@ function get_libreto_name() {
   return $name;
 }
 
-function curl_get_contents($url)
-{
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  $data = curl_exec($ch);
-  curl_close($ch);
-  return $data;
+function get_user_language() {
+  $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+  switch ($lang){
+      case "fr":
+          return "fr";
+          break;
+      default:
+          return "en";
+          break;
+  }
+}
+
+function load_translation_file() {
+  return spyc_load_file("assets/texts/translation.yml");
+}
+
+function localize($key) {
+  global $translation, $user_language;
+  if (array_key_exists($key, $translation)) :
+    if (array_key_exists($user_language, $translation[$key])) :
+      return $translation[$key][$user_language];
+    elseif (array_key_exists($fallback_language, $translation[$key])) :
+      return $translation[$key][$fallback_language];
+    endif;
+  else:
+    return "$key ($user_language)";
+  endif;
 }

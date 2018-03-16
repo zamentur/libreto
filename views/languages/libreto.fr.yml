@@ -1,0 +1,46 @@
+title: Libreto
+read: Lire
+write: Écrire
+export: Exporter
+download: Télécharger
+update: Mettre à jour
+credits: |
+  **Crédits**
+  Graphisme & programmation : [Pierre Tandille](http://lecollecteur.fr)
+  Typographies : [HK Grotesk](https://hanken.co), [Spun Gold](http://www.co-bay.com/dasein), [Jean-Luc](http://www.carvalho-bernau.com)
+  Pads : [Etherpad](http://etherpad.org/), [Framapad](http://framapad.org), [Fairkom Board](https://board.net/)
+about: |
+  **À propos**
+  Un Libreto est un carnet de note collaboratif fondé sur framapad. Libreto est libre, gratuit, et minimaliste. [Plus d'infos](http://libreto.net)
+help: |
+  ## Bienvenue ! — [Libreto](http://libreto.net) est un outil d'écriture et de publication collaboratif basé sur [etherpad](https://etherpad.org).
+
+  **Pour commencer :**
+  - Rédigez la liste de vos pads
+  - Rechargez la page
+  - Lancez-vous : écrivez sur vos pads !
+
+  **Pour partager / collaborer :**
+  - Sélectionnez et copiez l'URL
+  - Partagez-là !
+
+  **Pour diffuser :**
+  - exportez sous forme de livre, de PDF ou de document ODT
+
+  **Pour personnaliser :**
+  - Créez une feuille de style en ajoutant un pad style.css à votre menu
+
+  ----
+
+  **Menu**
+  Pour chaque pad, vous pouvez ajoutez des options entre parenthèses. Exemple :
+  `Mon pad (url: http://url.pad color: blue)`
+  *Options disponibles*
+  **url** : adresse d'un pad existant
+  **color** : [nom d'une couleur](https://htmlcolorcodes.com/color-names) / [code hexadecimal](https://htmlcolorcodes.com/color-chart)
+  **visibility** : visible / private / hidden
+
+  ----
+
+  **Exporter un livre**
+  Créez une feuille de style pour le livre en ajoutant un pad book.css à votre menu

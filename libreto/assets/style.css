@@ -83,16 +83,31 @@ a {
 
 hr {
   border: none;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  margin: 1rem 0 ;
+}
+
+code {
+	font-size: .8rem;
+	padding: .1rem .3rem;
+	background: #eee;
+	font-family: 'whoismono', monospace;
+	border: .5px solid #ddd;
+	margin: .1rem 0;
+	display: inline-block;
+}
+
+header p {
+	margin: 0;
 }
 
 header ul {
-	margin: 1rem;
+	margin: 0;
+	margin-bottom: 1rem;
 }
 header li {
 	list-style-type: "– ";
-	margin-left: 1.1rem;
+	margin-left: .8rem;
 	list-style-position: outside;
 }
 
@@ -102,7 +117,8 @@ header u {
 }
 
 header .full a {
-	border-bottom: 1px solid #ccc;
+	border: 0;
+	text-decoration: underline;
 }
 
 #container {
@@ -116,18 +132,18 @@ header .full a {
 
 header {
   flex: 2;
-	padding: 1rem;
-	padding-top: 3rem;
+	padding: 3rem 1.5rem 1.5rem 1.5rem;
 	overflow-y: auto;
 	overflow-x: hidden;
 	z-index: 2;
-	border-right: 1px solid #ccc;
+	border-right: 1px solid #ddd;
 	position: relative;
+	font-size: 1rem;
 }
 
 nav {
 	flex: 1;
-	border-right: 1px solid #ccc;
+	border-right: 1px solid #ddd;
 	flex-direction: column;
 	display: flex;
 }
@@ -156,7 +172,7 @@ nav li {
 	font-family: 'spungold';
 	font-size: 1.2rem;
 	padding: 1rem;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ddd;
 }
 
 nav li.active a {
@@ -164,12 +180,12 @@ nav li.active a {
 }
 
 nav li.settings {
-	background-color: #ccc;
-	border-bottom: 1px solid #B3B3B3;
+	background-color: #eee;
+	border-bottom: 1px solid #ddd;
 }
 
 nav li.settings:last-child {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ddd;
 }
 
 nav ul.menu {
@@ -177,8 +193,8 @@ nav ul.menu {
 }
 
 nav ul.helpers {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 	margin-top: -1px;
 }
 
@@ -192,7 +208,7 @@ nav ul.helpers li {
 
 nav ul.helpers li {
 	border: 0;
-	border-right: 1px solid #ccc;
+	border-right: 1px solid #ddd;
 }
 
 nav ul.helpers li:last-child {
@@ -203,6 +219,11 @@ iframe {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+header .full {
+	margin-bottom: 3rem;
+	font-size: .9rem;
 }
 
 header .colophon {
@@ -229,6 +250,7 @@ header.close div.full {
 
 header.close {
 	flex: none;
+	padding: 1rem;
 }
 
 header.close div {

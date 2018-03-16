@@ -63,7 +63,7 @@ Jean-Luc typeface Copyright (c) 2010 Atelier Carvalho Bernau
 
 body {
 	font-family: "HKGrotesk";
-	font-size: 18pt;
+	font-size: 16pt;
 	padding: 0;
 	margin: 0;
 }
@@ -132,34 +132,23 @@ form {
 
 input[type=input] {
 	font-family: "HKGrotesk";
-	font-size: 18pt;
+	font-size: 16pt;
 	background: none;
-	border: 1px solid #00da53;
-	padding: 1rem 2rem;
+	border: 1px solid #000;
+	padding: 1rem;
 	width: 100%;
 	margin-bottom: 1rem;
 }
 
 button[type=submit] {
 	font-family: "HKGrotesk";
-	font-size: 18pt;
-	background: #00da53;
+	font-size: 16pt;
+	background: #000;
 	color: #fff;
 	border: 0px solid #ccc;
-	padding: 1rem 2rem;
+	padding: 1rem;
 	width: 100%;
 	margin-bottom: 1rem;
 	cursor: pointer;
 	border-radius: 2rem;
-}
-
-div[class^="lang-"] {
-	display: none;
-}
-.current-lang-fr .lang-fr {
-	display: block;
-}
-
-.current-lang-en .lang-en {
-	display: block;
 }

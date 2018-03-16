@@ -1,0 +1,22 @@
+title: Libreto
+logo : http://libreto.net/assets/images/libretonet.png
+introduction: >
+  Libreto is a collaborative notebook based on [framapad](https://framapad.org).
+
+
+  It can become a mini-website, a workshop logbook or the tool to write a collective book.
+
+
+  Libreto is free and minimal.
+
+  No registration, no connection, anyone can write a Libreto.
+
+create: Create libreto
+
+colophon: >
+
+  Libreto is under [GNU/GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+  Use and modify on [GitHub](https://github.com/Ventricule/libreto)
+
+  A project initiated by [Pierre Tandille](http://lecollecteur.fr)

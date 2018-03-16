@@ -4,11 +4,7 @@ $(document ).ready( function() {
     $(this).parent().addClass('active').siblings().removeClass('active');
     var name = $(this).attr('data-name-encoded');
     var currentUrl = window.location.href.split('://')[1].split('/');
-    if (use_subdomain) {
-      var newUrl = '/' + name;
-    } else {
-      var newUrl = '/' + currentUrl[1] + '/' + name;;
-    }
+    var newUrl = '/' + currentUrl[1] + '/' + name;
     window.history.pushState("", "", newUrl);
     $('article').addClass('loading');
   });

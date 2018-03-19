@@ -41,3 +41,20 @@ function endsWith($haystack, $needle)
     return $length === 0 ||
     (substr($haystack, -$length) === $needle);
 }
+
+function url_get_contents($Url) {
+  if (!function_exists('curl_init')){
+      die('CURL is not installed!');
+  }
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $Url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  $output = curl_exec($ch);
+  curl_close($ch);
+  return $output;
+}
+
+function br2nl($text){
+  $breaks = array("<br />","<br>","<br/>");  
+  return str_ireplace($breaks, "\r\n", $text);
+}

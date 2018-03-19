@@ -74,7 +74,8 @@ class Pad
       "pad"       => $url . $libreto->options('pads_params'),
       "reader"    => "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->name),
       "txt"       => $url . "/export/txt",
-      "markdown"  => $url . "/export/markdown"
+      "markdown"  => $url . "/export/markdown",
+      "html"      => $url . "/export/html",
     );
 
   }
@@ -125,19 +126,51 @@ class Pad
 
   public function html() {
 
-    global $Parsedown, $Purifier;
+    global $Parsedown, $Purifier, $Markdownify, $libreto;
 
-    $markdown = file_get_contents($this->url('markdown'));
-    // remove \url{} tags
-    $markdown = preg_replace('#\\\url\{(.+)\}#i', '$1', $markdown);
-    // replace underline tags
-    $markdown = preg_replace('#underline(.+)underline#', '<u>$1</u>', $markdown);
-    // strip slashes
-    $markdown = stripslashes($markdown);
-    // parse
-    $html = $Parsedown->text($markdown);
-    // sanitize
-    $html = $Purifier->purify($html);
+    // we prefer to get html from markdown but if markdown export is not activated on etherpad instance, we use html export
+    if($libreto->provider('markdown')):
+      $markdown = file_get_contents($this->url('markdown'));
+      // remove \url{} tags
+      $markdown = preg_replace('#\\\url\{(.+)\}#i', '$1', $markdown);
+      // replace underline tags
+      $markdown = preg_replace('#underline(.+)underline#', '<u>$1</u>', $markdown);
+      // strip slashes
+      $markdown = stripslashes($markdown);
+      // parse
+      $html = $Parsedown->text($markdown);
+      // sanitize
+      $html = $Purifier->purify($html);
+    else:
+      $html = file_get_contents($this->url('html'));
+      // dom load
+      libxml_use_internal_errors(true); //Prevents Warnings, remove if desired
+      $dom = new DOMDocument();
+      $dom->loadHTML($html);
+      // remove hidden divs
+      foreach($dom->getElementsByTagName("div") as $div) {
+        if ($div->getAttribute('style') == 'display:none') {
+          $div->parentNode->removeChild($div);
+        }
+      }
+      // get body part
+      $body = "";
+      foreach($dom->getElementsByTagName("body")->item(0)->childNodes as $child) {
+          $body .= $dom->saveHTML($child);
+      }
+      // remove links
+      $body = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $body);
+      // remove <div>JavaScript license information</div>
+      $body = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $body);
+      // convert <br> to newline
+      $body = br2nl($body);
+      // convert to markdown
+      //$markdown = $Markdownify->parseString($body);
+      // parse to html
+      $html = $Parsedown->text($body);
+      // sanitize
+      $html = $Purifier->purify($html);
+    endif;
     // return
     return $html;
 

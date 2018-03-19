@@ -10,7 +10,7 @@ require __DIR__ . DS . 'libreto' . DS . 'helpers.php';
 
 // load all core classes
 function loadClass($classe) {
-  require __DIR__ . DS . 'libreto' . DS . $classe . '.php';
+  require __DIR__ . DS . 'libreto' . DS . strtolower($classe) . '.php';
 }
 spl_autoload_register('loadClass');
 

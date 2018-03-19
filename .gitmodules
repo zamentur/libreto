@@ -31,3 +31,6 @@
 [submodule "libreto/vendor/html2opendocument"]
 	path = libreto/vendor/html2opendocument
 	url = https://github.com/CatoTH/html2opendocument.git
+[submodule "libreto/vendor/Markdownify"]
+	path = libreto/vendor/Markdownify
+	url = https://github.com/Elephant418/Markdownify.git

@@ -2,7 +2,7 @@
 <?php
 if(isset($_POST['new_name'])):
   if($new_name = $_POST['new_name']) :
-    header('Location: ' . $libreto->options('url') . '/' . urlencode($new_name) );
+    header('Location:' . $libreto->options('url') . '/' . urlencode($new_name) );
   endif;
 endif;
 ?>

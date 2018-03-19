@@ -16,7 +16,7 @@ class Libreto
   public function defaults(){
     $defaults = array(
       'name'                   => "Libreto",
-      'url'                    => $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER["SERVER_NAME"],
+      'url'                    => ( isset($_SERVER["HTTPS"]) ? 'https' : 'http' ) . '://' . $_SERVER["SERVER_NAME"],
       'default_provider'       => 'framapad',
     );
 
@@ -135,10 +135,6 @@ class Libreto
 
   public function pads() {
     return $this->pads;
-  }
-
-  public function credits() {
-    $Parsedown->text(file_get_contents("/libreto/assets/texts/colophon.md"));
   }
 
   public function mode(){

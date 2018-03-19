@@ -3,6 +3,7 @@
   <ul class="helpers">
     <li class='switcher_button <?= $_SESSION['mode'] == 'read' ? 'active' : ''; ?>'><a href="?mode=read"><?= l("read", false) ?></a></li>
     <li class='switcher_button <?= $_SESSION['mode'] == 'write' ? 'active' : ''; ?>'><a href="?mode=write"><?= l("write", false) ?></a></li>
+    <li class='' style="flex: 0;"><a href='' class="refresh" data-name-encoded='' alt='<?= l("update", false) ?>'>↻</a></li>
   </ul>
   <ul class="menu">
 
@@ -19,7 +20,6 @@
   <ul class="helpers">
     <li class=""><a href='/bindery/<?= $libreto->name() ?>' class="" data-name-encoded=''><?= l("export", false) ?></a></li>
     <li class=""><a href='/export/<?= $libreto->name() ?>' class="" data-name-encoded='' download><?= l("download", false) ?></a></li>
-    <li class='' style="flex: 0;"><a href='' class="refresh" data-name-encoded='' alt='<?= l("update", false) ?>'>↻</a></li>
   </ul>
   <?php endif; ?>
 </nav>

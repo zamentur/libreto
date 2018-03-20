@@ -5,8 +5,8 @@ export: Export
 download: Download
 update: Update
 credits: |
-  **Crédits**
-  Graphisme & programmation : [Pierre Tandille](http://lecollecteur.fr)
+  **Credits**
+  Libreto : [Pierre Tandille](http://lecollecteur.fr)
   Typographies : [HK Grotesk](https://hanken.co), [Spun Gold](http://www.co-bay.com/dasein), [Jean-Luc](http://www.carvalho-bernau.com)
   Pads : [Etherpad](http://etherpad.org/), [Framapad](http://framapad.org), [Fairkom Board](https://board.net/)
 about: |

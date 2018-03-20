@@ -2,25 +2,21 @@ title: Libreto
 
 logo : http://libreto.net/assets/images/libretonet.png
 
-introduction: >
+introduction: |
   Libreto est un carnet de note collaboratif fondé sur [etherpad](http://etherpad.org/).
-
 
   Il peut devenir un mini-site, le carnet de bord d'un workshop ou le support de rédaction d'un livre collectif.
 
+  Pas d'inscription, pas de connexion, tout le monde peut utiliser et modifier un Libreto.
 
-  Libreto est libre, gratuit, et minimaliste.
+instance: |
+  <input type="checkbox" id="custom_instance"> Utiliser une instance personnalisé pour héberger les pads.
 
+name: Titre
 
-  Pas d'inscription, pas de connexion, tout le monde peut écrire un Libreto.
+create: Créer
 
-
-create: Créer un Libreto
-
-colophon: >
-
+colophon: |
   Libreto est sous [licence GNU/GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html).
-
   N'hésitez pas à participer sur [GitHub](https://github.com/Ventricule/libreto).
-
   Un projet initié par [Pierre Tandille](http://lecollecteur.fr).

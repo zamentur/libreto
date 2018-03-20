@@ -83,16 +83,15 @@ a {
 
 hr {
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgba(0,0,0,.15);;
   margin: 1rem 0 ;
 }
 
 code {
 	font-size: .8rem;
 	padding: .1rem .3rem;
-	background: #eee;
+	background: rgba(0,0,0,.15);
 	font-family: 'whoismono', monospace;
-	border: .5px solid #ddd;
 	margin: .1rem 0;
 	display: inline-block;
 }
@@ -248,9 +247,14 @@ header.close div.full {
 	display: none;
 }
 
+header.open {
+	background-color: #8ed1ff;
+}
+
 header.close {
 	flex: none;
 	padding: 1rem;
+	background-color: #fff;
 }
 
 header.close div {

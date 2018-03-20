@@ -16,6 +16,8 @@ class Libreto
   public function defaults(){
     $defaults = array(
       'name'                   => "Libreto",
+      'scheme'                 => ( isset($_SERVER["HTTPS"]) ? 'https' : 'http' ) . '://',
+      'server_name'            => $_SERVER["SERVER_NAME"],
       'url'                    => ( isset($_SERVER["HTTPS"]) ? 'https' : 'http' ) . '://' . $_SERVER["SERVER_NAME"],
       'default_provider'       => 'framapad',
     );

@@ -9,8 +9,7 @@ introduction: |
 
   Pas d'inscription, pas de connexion, tout le monde peut utiliser et modifier un Libreto.
 
-instance: |
-  <input type="checkbox" id="custom_instance"> Utiliser une instance personnalisé pour héberger les pads.
+instance: Utiliser une instance personnalisé pour héberger les pads.
 
 name: Titre
 

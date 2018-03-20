@@ -114,6 +114,10 @@ img {
 	margin-bottom: 1rem;
 }
 
+*:focus {
+	outline: none;
+}
+
 .introduction {
 	position: fixed;
 	top: 5rem;
@@ -188,18 +192,6 @@ button[type=submit] {
 	text-transform: lowercase;
 }
 
-select {
-	width: 15rem;
-	background: none;
-	border: 0;
-	font-size: 3rem;
-	font-family: "HKGrotesk";
-	margin-right: -2rem;
-	cursor: pointer;
-	text-overflow: ellipsis;
-	color: rgba(0,0,0,.5);
-}
-
 .url .subdomain,
 .url .dot {
 	display: none;
@@ -216,27 +208,33 @@ select {
 	vertical-align: text-top;
 	position: relative;
 	cursor: pointer;
-	padding-right: 2rem;
-	border-bottom: .2rem solid rgba(0,0,0,.5);
-	margin: 0 .5rem;
-}
-
-.subdomain .select {
-	overflow: hidden;
-	display: inline-block;
-	margin: 0;
-	vertical-align: text-top;
 }
 
 .subdomain::after {
     content: "›";
     position: absolute;
     top: 0;
-    right: 0;
+    left: .3rem;
     font-size: 3rem;
     pointer-events: none;
     transform: rotate(90deg);
 		color: rgba(0,0,0,.5);
+}
+
+.subdomain select {
+	min-width: 1rem;
+	background: none;
+	border: 0;
+	font-size: 3rem;
+	font-family: "HKGrotesk";
+	margin-right: -2.5rem;
+	cursor: pointer;
+	text-overflow: ellipsis;
+	color: rgba(0,0,0,1);
+	border-bottom: .2rem solid rgba(0,0,0,.5);
+	text-indent: 1rem;
+	text-align: right;
+	text-align-last:right;
 }
 
 input[type=checkbox] {

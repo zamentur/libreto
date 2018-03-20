@@ -10,36 +10,36 @@ credits: |
   Typographies : [HK Grotesk](https://hanken.co), [Spun Gold](http://www.co-bay.com/dasein), [Jean-Luc](http://www.carvalho-bernau.com)
   Pads : [Etherpad](http://etherpad.org/), [Framapad](http://framapad.org), [Fairkom Board](https://board.net/)
 about: |
-  **About Libreto**
-  Un Libreto est un carnet de note collaboratif fondé sur framapad. Libreto est libre, gratuit, et minimaliste. [Plus d'infos](http://libreto.net)
+  **About**
+  Pads of this libreto are hosted by
 help: |
-  ## Bienvenue ! — [Libreto](http://libreto.net) est un outil d'écriture et de publication collaboratif basé sur [etherpad](https://etherpad.org).
+  ## Welcome ! — [Libreto](http://libreto.net) is a collaborative notebook based on [etherpad](http://etherpad.org/).
 
-  **Pour commencer :**
-  - Rédigez la liste de vos pads
-  - Rechargez la page
-  - Lancez-vous : écrivez sur vos pads !
+  **Get started:**
+  - Write the list of your pads
+  - Reload the page
+  - Get started: write on your pads!
 
-  **Pour partager / collaborer :**
-  - Sélectionnez et copiez l'URL
-  - Partagez-là !
+  **To share / collaborate:**
+  - Select and copy the URL
+  - Share it!
 
-  **Pour diffuser :**
-  - exportez sous forme de livre, de PDF ou de document ODT
+  **To spread:**
+  - export as a book, PDF or ODT document
 
-  **Pour personnaliser :**
-  - Créez une feuille de style en ajoutant un pad style.css à votre menu
+  **To customize:**
+  - Use a stylesheet by adding a style.css pad to your menu
 
-  ## Plus d'options :
+  ----
 
   **Menu**
-
-  *Exemple :*
-  Mon pad (url: http://url.pad)
-  *Options :*
-  **url** : adresse d'un pad existant
-  **color** : [nom d'une couleur](https://htmlcolorcodes.com/color-names) / [code hexadecimal](https://htmlcolorcodes.com/color-chart)
+  For each pad, you can add options in parentheses. Example :
+  `Mon pad (url: http://url.pad color: blue)`
+  **url** : address of an existing pad
+  **color** : [color name](https://htmlcolorcodes.com/color-names) / [hexadecimal code](https://htmlcolorcodes.com/color-chart)
   **visibility** : visible / private / hidden
 
-  **Exporter un livre**
-  Créez une feuille de style pour le livre en ajoutant un pad book.css à votre menu
+  ----
+
+  **Book export**
+  Use a stylesheet for your book by adding a book.css pad to your menu

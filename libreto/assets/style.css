@@ -56,19 +56,17 @@ The Jean-Luc typeface was designed and made by Atelier Carvalho Bernau on the oc
 Jean-Luc typeface Copyright (c) 2010 Atelier Carvalho Bernau
 */
 
-body > pre {
-    z-index: 999;
-    position: absolute;
-    background: wheat;
-}
-
 * {
     box-sizing: border-box;
 }
 
+html {
+	font-size: 16px;
+}
+
 body {
   font-family: "HKGrotesk";
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 p {
@@ -137,7 +135,6 @@ header {
 	z-index: 2;
 	border-right: 1px solid #ddd;
 	position: relative;
-	font-size: 1rem;
 }
 
 nav {
@@ -145,6 +142,8 @@ nav {
 	border-right: 1px solid #ddd;
 	flex-direction: column;
 	display: flex;
+	font-family: 'spungold';
+	font-size: 1.2rem;
 }
 
 article {
@@ -168,8 +167,6 @@ nav ul {
 }
 
 nav li {
-	font-family: 'spungold';
-	font-size: 1.2rem;
 	padding: 1rem;
 	border-bottom: 1px solid #ddd;
 }
@@ -222,7 +219,7 @@ iframe {
 
 header .full {
 	margin-bottom: 3rem;
-	font-size: .9rem;
+	max-width: 30rem;
 }
 
 header .colophon {

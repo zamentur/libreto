@@ -62,21 +62,36 @@ class Pad
   public function set_urls() {
     global $libreto;
 
-    if($this->options['url']):
-      $title = array_slice(explode('/', trim('/', $this->options['url'])), -1)[0];
-      $url = trim($this->options['url'], '/ ');
+    if($this->options['type'] == "libreto"):
+      if($this->options['url']):
+        $title = urlencode(strtolower($this->name));
+        $url = trim($this->options['url'], '/ ');
+      else:
+        $title = urlencode(strtolower($this->name));
+        $url = $libreto->url() . '/' . $title;
+      endif;
+      $this->url = array(
+        "pad"   => $url,
+        "reader"    => "/reader/" . $title,
+      );
     else:
-      $title = urlencode(strtolower($libreto->options('name'))) . "+" . urlencode(strtolower($libreto->name())) . "+" . urlencode(strtolower($this->name));
-      $url = $libreto->provider('url') . "/p/" . $title;
+      if($this->options['url']):
+        $title = array_slice(explode('/', trim('/', $this->options['url'])), -1)[0];
+        $url = trim($this->options['url'], '/ ');
+      else:
+        $title = urlencode(strtolower($libreto->options('name'))) . "+" . urlencode(strtolower($libreto->name())) . "+" . urlencode(strtolower($this->name));
+        $url = $libreto->provider('url') . "/p/" . $title;
+      endif;
+      $this->url = array(
+        "pad"       => $url . $libreto->options('pads_params'),
+        "reader"    => "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->name),
+        "txt"       => $url . "/export/txt",
+        "markdown"  => $url . "/export/markdown",
+        "html"      => $url . "/export/html",
+      );
     endif;
 
-    $this->url = array(
-      "pad"       => $url . $libreto->options('pads_params'),
-      "reader"    => "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->name),
-      "txt"       => $url . "/export/txt",
-      "markdown"  => $url . "/export/markdown",
-      "html"      => $url . "/export/html",
-    );
+
 
   }
 
@@ -120,6 +135,8 @@ class Pad
   }
 
   public function txt() {
+    if (!$this->url('txt')) { return; }
+
     $txt = file_get_contents($this->url('txt'));
     return $txt;
   }
@@ -127,6 +144,8 @@ class Pad
   public function html() {
 
     global $Parsedown, $Purifier, $Markdownify, $libreto;
+
+    if (!$this->url('markdown')) { return; }
 
     // we prefer to get html from markdown but if markdown export is not activated on etherpad instance, we use html export
     if($libreto->provider('markdown')):
@@ -177,8 +196,11 @@ class Pad
   }
 
   public function css(){
+    if (!$this->url('markdown')) { return; }
+
     $css = strip_tags(file_get_contents($this->url('txt')));
     return $css;
+
   }
 
   public function visible($filter = false){

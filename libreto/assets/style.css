@@ -144,11 +144,14 @@ nav {
 	display: flex;
 	font-family: 'spungold';
 	font-size: 1.2rem;
+	box-shadow: .2rem 0rem .2rem rgba(0,0,0,.05);
+	z-index: 9;
 }
 
 article {
   flex: 3;
 	z-index: 1;
+	overflow: hidden;
 }
 
 article.loading iframe {
@@ -215,6 +218,10 @@ iframe {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+iframe.libreto {
+	margin-left: -4.1rem;
 }
 
 header .full {

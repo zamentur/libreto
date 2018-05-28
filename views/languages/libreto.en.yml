@@ -38,6 +38,8 @@ help: |
   **url** : address of an existing pad
   **color** : [color name](https://htmlcolorcodes.com/color-names) / [hexadecimal code](https://htmlcolorcodes.com/color-chart)
   **visibility** : visible / private / hidden
+  **type** : pad / libreto
+  **id** : pad identifier, allows to find it if its name changes
 
   ----
 

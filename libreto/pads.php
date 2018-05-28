@@ -32,7 +32,7 @@ class Pads
 
   public function find($p){
     foreach($this->pads as $pad) :
-      if (strtolower($pad->name()) == strtolower($p)):
+      if (strtolower($pad->id()) == strtolower($p)):
         return $pad;
       endif;
     endforeach;

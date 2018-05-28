@@ -14,22 +14,26 @@ class Pad
 
     $this->color = "#000";
     $this->options = $this->defaults();
-    $this->name = trim(preg_replace('/(?=[^\]])\([a-z0-9_-]+:.*?\)/', '', $input));
 
+    //search for options
     $search = preg_match('/(?=[^\]])\([a-z0-9_-]+:.*?\)/', $input, $options);
     if($search):
       $this->set_options($options[0]);
     endif;
+    //give pad name
+    $this->name = trim(preg_replace('/(?=[^\]])\([a-z0-9_-]+:.*?\)/', '', $input));
+    $this->id = $this->options['id'] ?: $this->name;
     $this->set_urls();
-
   }
 
   public function defaults(){
     $defaults = array(
       'color'                     => "#000000",
-      'type'                      => "default",
+      'type'                      => "pad",
       'url'                       => false,
-      'visibility'                => 'visible'
+      'visibility'                => 'visible',
+      'name'                      => "",
+      'id'                        => false,
     );
 
     return $defaults;
@@ -37,7 +41,7 @@ class Pad
 
   public function set_options($options) {
     $tag  = trim( rtrim( ltrim( $options, '(' ), ')' ) );
-    $attributes = "color|url|type|visibility";
+    $attributes = "color|url|type|visibility|id";
     $search = preg_split('!(' . $attributes . '):!i', $tag, false, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
 
     $num  = 0;
@@ -64,27 +68,27 @@ class Pad
 
     if($this->options['type'] == "libreto"):
       if($this->options['url']):
-        $title = urlencode(strtolower($this->name));
+        $id = urlencode(strtolower($this->id));
         $url = trim($this->options['url'], '/ ');
       else:
-        $title = urlencode(strtolower($this->name));
-        $url = $libreto->url() . '/' . $title;
+        $id = urlencode(strtolower($this->id));
+        $url = $libreto->url() . '/' . $id;
       endif;
       $this->url = array(
         "pad"   => $url,
-        "reader"    => "/reader/" . $title,
+        "reader"    => "/reader/" . $id,
       );
     else:
       if($this->options['url']):
-        $title = array_slice(explode('/', trim('/', $this->options['url'])), -1)[0];
+        $padname = array_slice(explode('/', trim('/', $this->options['url'])), -1)[0];
         $url = trim($this->options['url'], '/ ');
       else:
-        $title = urlencode(strtolower($libreto->options('name'))) . "+" . urlencode(strtolower($libreto->name())) . "+" . urlencode(strtolower($this->name));
-        $url = $libreto->provider('url') . "/p/" . $title;
+        $padname = urlencode(strtolower($libreto->options('name'))) . "+" . urlencode(strtolower($libreto->name())) . "+" . urlencode(strtolower($this->id));
+        $url = $libreto->provider('url') . "/p/" . $padname;
       endif;
       $this->url = array(
         "pad"       => $url . $libreto->options('pads_params'),
-        "reader"    => "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->name),
+        "reader"    => "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->id),
         "txt"       => $url . "/export/txt",
         "markdown"  => $url . "/export/markdown",
         "html"      => $url . "/export/html",
@@ -132,6 +136,10 @@ class Pad
 
   public function name() {
     return $this->name;
+  }
+
+  public function id() {
+    return $this->id;
   }
 
   public function txt() {

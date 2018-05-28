@@ -4,9 +4,9 @@ $(document ).ready( function() {
     e.preventDefault();
     $this = $(this);
     $this.parent().addClass('active').siblings().removeClass('active');
-    var name = $(this).attr('data-name-encoded');
+    var id = $(this).attr('data-id-encoded');
     var currentUrl = window.location.href.split('://')[1].split('/');
-    var newUrl = '/' + currentUrl[1] + '/' + name;
+    var newUrl = '/' + currentUrl[1] + '/' + id;
     window.history.pushState("", "", newUrl);
     $('article').addClass('loading');
 

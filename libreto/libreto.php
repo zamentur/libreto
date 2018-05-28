@@ -162,9 +162,9 @@ class Libreto
     $pads = $this->pads()->children();
     $chapters = array();
     foreach($pads as $pad) :
-      $chapter = $pad->name();
+      $name = $pad->name();
       $html = $pad->html();
-      $chapters[] = array("title" => $chapter, "html" => $html);
+      $chapters[] = array("title" => $name, "html" => $html);
     endforeach;
 
     $odt = new \CatoTH\HTML2OpenDocument\Text();

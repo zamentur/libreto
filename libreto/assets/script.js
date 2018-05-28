@@ -33,14 +33,12 @@ $(document ).ready( function() {
     location.reload(true);
   });
 
-  $("header .full .switch").click(function(){
-    $("header").removeClass('open').addClass('close');
-    $.post("/assets/ajax.php", {"action": "headerVisibility", "visibility": "close"});
+  $("header .btn-about").click(function(){
+    $(".modal-about, .modal-cover").removeClass('hide');
   });
 
-  $("header .reduced .switch").click(function(){
-    $("header").removeClass('close').addClass('open');
-    $.post("/assets/ajax.php", {"action": "headerVisibility", "visibility": "open"});
+  $(".modal .btn-close").click(function(){
+    $(".modal, .modal-cover").addClass('hide');
   });
 
 });

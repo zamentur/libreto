@@ -12,8 +12,9 @@ credits: |
 about: |
   **À propos**
   Les pads de ce libreto sont hébergés par
-help: |
-  ## Bienvenue ! — [Libreto](http://libreto.net) est un outil d'écriture et de publication collaboratif basé sur [etherpad](https://etherpad.org).
+modal-help-title: Bienvenue !
+modal-help: |
+  ## [Libreto](http://libreto.net) est un outil d'écriture et de publication collaboratif basé sur [etherpad](https://etherpad.org).
 
   **Pour commencer :**
   - Rédigez la liste de vos pads

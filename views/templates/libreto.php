@@ -1,7 +1,8 @@
 <?php global $libreto ?>
 <?php snippet('header') ?>
 <div id="container">
-  <?php snippet('introduction') ?>
+  <?php snippet('title') ?>
+  <?php snippet('modals') ?>
   <?php snippet('nav') ?>
   <article>
     <?php

@@ -12,7 +12,8 @@ credits: |
 about: |
   **About**
   Pads of this libreto are hosted by
-help: |
+modal-help-title: Bienvenue !
+modal-help: |
   ## Welcome ! — [Libreto](http://libreto.net) is a collaborative notebook based on [etherpad](http://etherpad.org/).
 
   **Get started:**

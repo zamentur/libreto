@@ -94,6 +94,10 @@ code {
 	display: inline-block;
 }
 
+.hide {
+	display: none;
+}
+
 header p {
 	margin: 0;
 }
@@ -127,16 +131,6 @@ header .full a {
 	left: 0;
 }
 
-header {
-  flex: 2;
-	padding: 3rem 1.5rem 1.5rem 1.5rem;
-	overflow-y: auto;
-	overflow-x: hidden;
-	z-index: 2;
-	border-right: 1px solid #ddd;
-	position: relative;
-}
-
 nav {
 	flex: 1;
 	border-right: 1px solid #ddd;
@@ -161,17 +155,24 @@ article.loading iframe {
 ul, li {
   margin: 0;
   padding: 0;
-  list-style-type: none;
+	list-style-type: '- ';
+	list-style-position: inside;
+}
+
+ul {
+	margin-bottom: 1rem;
 }
 
 nav ul {
 	padding: 0;
 	overflow: auto;
+	margin: 0;
 }
 
 nav li {
 	padding: 1rem;
 	border-bottom: 1px solid #ddd;
+	list-style-type: none;
 }
 
 nav li.active a {
@@ -224,50 +225,20 @@ iframe.libreto {
 	margin-left: -4.1rem;
 }
 
-header .full {
-	margin-bottom: 3rem;
-	max-width: 30rem;
-}
-
-header .colophon {
-	font-size: .8rem;
-	display: flex;
-}
-
-header .colophon > div {
-    flex: 1;
-    margin-right: 2rem;
-}
-
-header .colophon > div:last-child {
-    margin-right: 0;
-}
-
-header.open div.reduced {
-	display: none;
-}
-
-header.close div.full {
-	display: none;
-}
-
-header.open {
-	background-color: #8ed1ff;
-}
-
-header.close {
+header {
+	position: relative;
 	flex: none;
 	padding: 1rem;
 	background-color: #fff;
-}
-
-header.close div {
-	width: 2rem;
-}
-
-header .reduced {
 	font-family: "JeanLucWeb-Thin";
 	font-size: 1.8rem;
+	border-right: 1px solid #ddd;
+	z-index: 2;
+	width: 4rem;
+}
+
+header > div {
+	width: 2rem;
 }
 
 header .instance_name {
@@ -279,6 +250,7 @@ header .instance_name {
 	transform-origin: 0 0;
 	white-space: nowrap;
 }
+
 header .libreto_name {
   position: absolute;
   top: 50%;
@@ -289,7 +261,8 @@ header .libreto_name {
 	white-space: nowrap;
 }
 
-header > div > .switch {
+
+header .btn-about {
   position: absolute;
   top: .5rem;
   left: 1rem;
@@ -303,4 +276,88 @@ header > div > .switch {
   font-size: 2.5rem;
   line-height: 0;
   cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: -50%;
+    transform: translate(-50%,-50%);
+    z-index: 99999999999;
+    background: #8ed1ff;
+    overflow: hidden;
+    max-width: 50rem;
+    max-height: 90%;
+    bottom: -50%;
+}
+
+.modal-cover {
+	background: rgba(255,255,255,.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 99999999998;
+}
+
+.modal > .title {
+	position: absolute;
+	top: 0;
+	left: 3rem;
+}
+.modal > .title > p{
+	line-height: 3.2rem;
+	font-weight: bold;
+	margin: 0;
+}
+
+.modal > .content {
+	overflow: auto;
+	position: absolute;
+	padding: 1rem 3rem;
+	top: 3rem;
+	bottom: 0rem;
+	border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.modal > .content p {
+    margin: 0;
+}
+
+.modal > .content::after {
+    height: 2rem;
+    content: "";
+    display: block;
+}
+
+.modal .btn-close {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    font-family: "JeanLucWeb-Thin";
+    font-size: 2.5rem;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.modal-about .colophon {
+	font-size: .8rem;
+	display: flex;
+}
+
+.modal-about .colophon > div {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.modal-about .colophon > div:last-child {
+    margin-right: 0;
 }

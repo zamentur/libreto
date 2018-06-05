@@ -34,7 +34,7 @@ $(document ).ready( function() {
   });
 
   $("header .btn-about").click(function(){
-    $(".modal-about, .modal-cover").removeClass('hide');
+    $(".modal, .modal-cover").removeClass('hide');
   });
 
   $(".modal .btn-close").click(function(){

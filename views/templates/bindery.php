@@ -11,10 +11,11 @@ global $libreto;
 
   <script src="/libreto/assets/js/bindery.umd.js"></script>
   <script src="/libreto/assets/js/bindery-controls.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" href="/libreto/assets/style-reader.css">
-  <style><?= $libreto->pads()->find('book.css') ? $libreto->pads()->find('book.css')->css() : ''; ?></style>
+  <style><?= $libreto->pads()->book_css(); ?></style>
   <script>
-  Bindery.makeBook({
+  var defaultBook = {
     content: {
       selector: '.content',
       url: '/reader/<?= $libreto->name() ?>/',
@@ -67,7 +68,10 @@ global $libreto;
       }),
       Bindery.FullBleedPage({ selector: '.fullpage', continue: 'next' }),
     ]
-  })
+  };
+  var customBook = <?= $libreto->pads()->book_js() ?>;
+  var options = $.extend( true, defaultBook, customBook );
+  Bindery.makeBook(options);
   </script>
 </body>
 </html>

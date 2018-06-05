@@ -6,6 +6,8 @@ class Pads
 
   private $pads = array();
   private $css = false;
+  private $book_js = false;
+  private $book_css = false;
 
   public function __construct($pads = array()) {
     $this->push($pads);
@@ -14,7 +16,7 @@ class Pads
   public function push($pads){
     $pads = (array)$pads;
     foreach ($pads as $pad) :
-      if(endsWith($pad, '.css')):
+      if(endsWith($pad, '.css') || endsWith($pad, '.js')):
         $this->pads[] = new Pad($pad . ' (type: settings visibility: private)');
       else:
         $this->pads[] = new Pad($pad);
@@ -26,6 +28,20 @@ class Pads
   public function css() {
     if($css = $this->find('style.css')):
       return $css->css();
+    endif;
+    return false;
+  }
+
+  public function book_css() {
+    if($book_css = $this->find('book.css')):
+      return $book_css->css();
+    endif;
+    return false;
+  }
+
+  public function book_js() {
+    if($book_js = $this->find('book.js')):
+      return $book_js->js();
     endif;
     return false;
   }

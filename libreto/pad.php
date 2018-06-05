@@ -191,8 +191,6 @@ class Pad
       $body = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $body);
       // convert <br> to newline
       $body = br2nl($body);
-      // convert to markdown
-      //$markdown = $Markdownify->parseString($body);
       // parse to html
       $html = $Parsedown->text($body);
       // sanitize
@@ -204,10 +202,16 @@ class Pad
   }
 
   public function css(){
-    if (!$this->url('markdown')) { return; }
 
     $css = strip_tags(file_get_contents($this->url('txt')));
     return $css;
+
+  }
+
+  public function js(){
+
+    $js = strip_tags(file_get_contents($this->url('txt')));
+    return $js;
 
   }
 

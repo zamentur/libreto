@@ -1,5 +1,5 @@
 <?php global $libreto ?>
-<div class="modal-cover hide"></div>
+<div class="modal-cover <?= count($libreto->pads()->children()) > 1 ? 'hide' : '' ?>"></div>
 <div class="modal modal-about <?= count($libreto->pads()->children()) > 1 ? 'hide' : '' ?>">
   <div class="title"><?= l("modal-help-title") ?></div>
   <button class="btn-close">×</button>

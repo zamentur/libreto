@@ -11,7 +11,7 @@ global $libreto;
 
   <script src="/libreto/assets/js/bindery.umd.js"></script>
   <script src="/libreto/assets/js/bindery-controls.min.js"></script>
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="/libreto/assets/js/jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" href="/libreto/assets/style-reader.css">
   <style><?= $libreto->pads()->book_css(); ?></style>
   <script>

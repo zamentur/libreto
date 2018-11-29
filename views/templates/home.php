@@ -23,7 +23,7 @@ endif;
 
   <link rel="stylesheet" href="/libreto/assets/style-index.css">
 
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="/libreto/assets/js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="/libreto/assets/script-home.js"></script>
 </head>
 

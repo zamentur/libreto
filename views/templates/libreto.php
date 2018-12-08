@@ -1,5 +1,7 @@
 <?php global $libreto ?>
+
 <?php snippet('header') ?>
+
 <div id="container">
   <?php snippet('title') ?>
   <?php snippet('modals') ?>
@@ -9,6 +11,7 @@
     if ($libreto->pads()->selected()) :
       $iframe = $libreto->pads()->selected()->url();
     else :
+      $iframe = false;
       header('Location: ?mode=write');
     endif;
     ?>

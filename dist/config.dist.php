@@ -53,6 +53,8 @@ $providers = array(
 
 $options = array(
   'name'                            => "Libreto",
+  'root'                            => '/',
+  'use_subdomain'                   => false,
   'default_provider'                => "framapad",
   'providers'                       => $providers,
 );

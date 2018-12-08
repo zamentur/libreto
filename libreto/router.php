@@ -13,9 +13,16 @@ class Router
 
   public function split() {
 
+    global $libreto;
+
     // directories
     $directories = explode( '/', trim($_SERVER['REQUEST_URI'], '/') );
     $this->directories = array_filter(array_map("urldecode", $directories));
+
+    // remove the url first part if Libreto is installed in a subdirectory
+    if($libreto->options('root') != "/") :
+      array_shift($this->directories);
+    endif;
 
     // subdomain
     $server_name = explode(".",$_SERVER["SERVER_NAME"]);
@@ -27,7 +34,13 @@ class Router
   }
 
   public function provider(){
-    return $this->subdomain;
+    global $libreto;
+
+    if ( $libreto->options('use_subdomain')):
+      return $this->subdomain;
+    else :
+      return false;
+    endif;
   }
 
   public function template(){

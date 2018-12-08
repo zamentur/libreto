@@ -16,10 +16,18 @@ class Libreto
   public function defaults(){
     $defaults = array(
       'name'                   => "Libreto",
-      'scheme'                 => ( isset($_SERVER["HTTPS"]) ? 'https' : 'http' ) . '://',
-      'server_name'            => $_SERVER["SERVER_NAME"],
-      'url'                    => ( isset($_SERVER["HTTPS"]) ? 'https' : 'http' ) . '://' . $_SERVER["SERVER_NAME"],
+      'root'                   => "/",
       'default_provider'       => 'framapad',
+      'use_subdomain'          => false,
+      'providers'              => array(
+        'framapad'  => array(
+          'name'                       => "Framapad",
+          'url'                        => "https://annuel2.framapad.org",
+          'default_text'               => "–––––",
+          'markdown'                   => true,
+          'html'                       => true,
+        )
+      ),
     );
 
     return $defaults;
@@ -27,18 +35,19 @@ class Libreto
 
   public function __construct($options) {
 
+    $this->options  = array_merge($this->defaults(), $options);
+
+  }
+
+  public function launch(){
+
     $this->pads     = new Pads();
     $this->router   = new Router();
-    $this->options  = array_merge($this->defaults(), $options);
 
     $this->set_provider();
     $this->set_name();
     $this->set_language();
     $this->set_mode();
-
-  }
-
-  public function launch(){
 
     $this->set_menu();
     $this->set_pads();
@@ -48,7 +57,7 @@ class Libreto
 
   }
 
-    public function set_provider(){
+  public function set_provider(){
     $name = $this->router()->provider() ?: $this->options('default_provider');
     $providers = $this->options('providers');
     if ($name && array_key_exists($name, $providers)) :
@@ -136,7 +145,15 @@ class Libreto
   }
 
   public function url() {
-    return trim($this->options['url'], '/ ') ;
+    $sheme = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+    $url = $sheme . '://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+    return trim($url, '/ ') ;
+  }
+
+  public function base_url() {
+    $sheme = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+    $url = $sheme . '://' . $_SERVER["SERVER_NAME"] . $this->options['root'];
+    return trim($url, '/ ') ;
   }
 
   public function pads() {

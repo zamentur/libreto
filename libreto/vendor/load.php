@@ -10,7 +10,15 @@ require_once 'Markdownify/src/Converter.php';
 require_once 'Markdownify/src/ConverterExtra.php';
 require_once 'Markdownify/src/Parser.php';
 
-$Purifier = new HTMLPurifier();
+/* --------- Purifier ------------*/
+
+//allow iframes from trusted sources
+$config = HTMLPurifier_Config::createDefault();
+$config->set('HTML.SafeIframe', true);
+$config->set('URI.SafeIframeRegexp', '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%'); //allow YouTube and Vimeo
+$Purifier = new HTMLPurifier($config);
+
+
 $Markdownify = new Markdownify\ConverterExtra;
 $Parsedown = new ParsedownExtra();
 $Parsedown = $Parsedown->setBreaksEnabled(true);

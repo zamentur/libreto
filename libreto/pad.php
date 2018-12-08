@@ -72,11 +72,11 @@ class Pad
         $url = trim($this->options['url'], '/ ');
       else:
         $id = urlencode(strtolower($this->id));
-        $url = $libreto->url() . '/' . $id;
+        $url = $libreto->base_url() . '/' . $id;
       endif;
       $this->url = array(
-        "pad"   => $url,
-        "reader"    => "/reader/" . $id,
+        "pad"       => $url,
+        "reader"    => $libreto->base_url() . "/reader/" . $id,
       );
     else:
       if($this->options['url']):
@@ -88,7 +88,7 @@ class Pad
       endif;
       $this->url = array(
         "pad"       => $url . $libreto->options('pads_params'),
-        "reader"    => "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->id),
+        "reader"    => $libreto->base_url() . "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->id),
         "txt"       => $url . "/export/txt",
         "markdown"  => $url . "/export/markdown",
         "html"      => $url . "/export/html",

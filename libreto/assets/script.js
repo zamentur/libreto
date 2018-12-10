@@ -46,7 +46,7 @@ $(document ).ready( function() {
     $(".modal-cover").removeClass('hide');
   });
 
-  $(".modal-cover").click(function(){
+  $(".modal-cover, nav a").click(function(){
     $("nav").removeClass('open');
     $(".modal-cover").addClass('hide');
   })

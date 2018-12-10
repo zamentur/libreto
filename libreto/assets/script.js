@@ -41,4 +41,14 @@ $(document ).ready( function() {
     $(".modal, .modal-cover").addClass('hide');
   });
 
+  $(".btn-menu").click(function(){
+    $("nav").addClass('open');
+    $(".modal-cover").removeClass('hide');
+  });
+
+  $(".modal-cover").click(function(){
+    $("nav").removeClass('open');
+    $(".modal-cover").addClass('hide');
+  })
+
 });

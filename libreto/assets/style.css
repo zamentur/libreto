@@ -262,6 +262,7 @@ header .libreto_name {
 }
 
 
+header .btn-menu,
 header .btn-about {
   position: absolute;
   top: .5rem;
@@ -276,6 +277,10 @@ header .btn-about {
   font-size: 2.5rem;
   line-height: 0;
   cursor: pointer;
+}
+
+header .btn-menu {
+	display: none;
 }
 
 .modal {
@@ -299,7 +304,7 @@ header .btn-about {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 99999999998;
+	z-index: 99999;
 }
 
 .modal > .title {
@@ -360,4 +365,85 @@ header .btn-about {
 
 .modal-about .colophon > div:last-child {
     margin-right: 0;
+}
+
+@media (max-width:600px) {
+	#container {
+		flex-direction: column;
+	}
+	header {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		border: 0;
+		border-bottom: 1px solid #ddd;
+	}
+
+	header .libreto_name {
+    text-align: center;
+    margin: 0 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+	}
+
+	header .instance_name,
+	header .libreto_name,
+	header .btn-menu,
+	header .btn-about {
+		position: unset;
+		transform: none;
+	}
+
+	header .instance_name {
+		display: none;
+	}
+
+	header .btn-menu,
+	header .btn-about {
+		height: 2rem;
+		font-size: 2rem;
+		display: block;
+	}
+
+	header .btn-menu {
+		border-width: 1px 0 1px 0;
+		border-style: solid;
+		margin: 0;
+		height: 1.2rem;
+		width: 1.5rem;
+		position: relative;
+		left: .5rem;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	header .btn-menu::after {
+		content: ' ';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		border-top: 1px solid;
+		height: 1px;
+		overflow: hidden;
+	}
+
+	nav {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 10%;
+		min-width: 3rem;
+		z-index: 999999;
+		transition: all .5s;
+		transform: translateX(-120%);
+		background: #fff;
+	}
+
+	nav.open {
+		transform: translateX(0%);
+	}
+
 }

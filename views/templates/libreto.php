@@ -12,7 +12,9 @@
       $iframe = $libreto->pads()->selected()->url();
     else :
       $iframe = false;
-      header('Location: ?mode=write');
+      if($_SESSION['mode'] == 'read'):
+        header('Location: ?mode=write');
+      endif;
     endif;
     ?>
     <iframe id="framepad" name="myframe" width=600 height=400 src="<?= $iframe ?>"></iframe>

@@ -69,7 +69,7 @@ global $libreto;
       Bindery.FullBleedPage({ selector: '.fullpage', continue: 'next' }),
     ]
   };
-  var customBook = <?= $libreto->pads()->book_js() ?>;
+  var customBook = <?= $libreto->pads()->book_js() ?: 'false' ?>;
   var options = $.extend( true, defaultBook, customBook );
   Bindery.makeBook(options);
   </script>

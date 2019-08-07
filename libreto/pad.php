@@ -122,6 +122,23 @@ class Pad
     return $this->selected;
   }
 
+  public function isEmpty(){
+    global $libreto;
+
+    if(!$this->txt()):
+      return true;
+    endif;
+
+    // If pad content == default_text, consider as empty
+    if($libreto->provider('default_text')):
+      if(strpos($this->txt(), $libreto->provider('default_text')) === 0 ) :
+        return true;
+      endif;
+    endif;
+
+    return false;
+  }
+
   public function url($format = 'pad') {
     global $libreto;
     if($format == "pad"):
@@ -210,7 +227,13 @@ class Pad
 
   public function js(){
 
-    $js = strip_tags(file_get_contents($this->url('txt')));
+    global $libreto;
+
+    if($this->isEmpty()):
+      return false;
+    endif;
+
+    $js = strip_tags(file_get_contents($this->url('txt'))) ?: false;
     return $js;
 
   }

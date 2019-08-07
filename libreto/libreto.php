@@ -116,11 +116,9 @@ class Libreto
     $pad = $this->pads()->find('Menu');
     $menu = array_values(array_filter(preg_split('/\r\n|\r|\n/', $pad->txt())));
     $menu = array_map('trim', $menu);
-    // if menu is filled with default text, make it empty
-    if(count($menu) && $this->provider('default_text')):
-      if(strpos($menu[0], $this->provider('default_text')) === 0 ) :
-        $menu = array();
-      endif;
+    // if menu is empty, create it
+    if($pad->isEmpty()):
+      $menu = array();
     endif;
     $this->menu = $menu;
   }

@@ -172,7 +172,6 @@ class Libreto
   public function export(){
 
     $title = $this->name();
-    //$introduction = $this->pads()->find('about') ? $this->pads()->find('about')->html() : false;
 
     $pads = $this->pads()->children();
     $chapters = array();
@@ -186,7 +185,6 @@ class Libreto
 
     $odt = new \CatoTH\HTML2OpenDocument\Text();
     $odt->addHtmlTextBlock('<h1>' . $title . '</h1>');
-    //$odt->addHtmlTextBlock($introduction);
     foreach ($chapters as $chapter) {
       $odt->addHtmlTextBlock('<h2>' . $chapter['title'] . '</h2>');
       $odt->addHtmlTextBlock($chapter['html']);

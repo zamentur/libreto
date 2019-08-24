@@ -7,7 +7,14 @@ if(isset($_POST['new_name'])):
     else:
       echo $instance = '';
     endif;
-    header('Location:' . $libreto->options('scheme') . $instance . $libreto->options('server_name') . '/' . urlencode($new_name) );
+    if( $root = $libreto->options('root') && $libreto->options('root') != '/' ) :
+      $root = '/' . trim($root, '/ ') . '/' ;
+    else :
+      $root = '/';
+    endif;
+    $sheme =        ( isset($_SERVER["HTTPS"]) ? 'https' : 'http' ) . '://';
+    $server_name =  trim($_SERVER["SERVER_NAME"], '/ ');
+    header('Location:' . $sheme . $instance . $server_name . $root . urlencode($new_name) );
   endif;
 endif;
 ?>
@@ -21,10 +28,10 @@ endif;
 
   <title>Libreto</title>
 
-  <link rel="stylesheet" href="/libreto/assets/style-index.css">
+  <link rel="stylesheet" href="<?= $libreto->base_url() ?>/libreto/assets/style-index.css">
 
-  <script src="/libreto/assets/js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="/libreto/assets/script-home.js"></script>
+  <script src="<?= $libreto->base_url() ?>/libreto/assets/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="<?= $libreto->base_url() ?>/libreto/assets/script-home.js"></script>
 </head>
 
 <body>
@@ -50,7 +57,7 @@ endif;
           endforeach;
           ?>
         </select>
-      </span><span class="dot">.</span><span class="domain">libreto.net/</span><span class="directory"><input type="input" autofocus="autofocus" onfocus="this.select()" name="new_name" placeholder="<?= l('name', false) ?>" /></span>
+      </span><span class="dot">.</span><span class="domain"><?= str_replace('//','',strstr($libreto->base_url(), '//')) ?>/</span><span class="directory"><input type="input" autofocus="autofocus" onfocus="this.select()" name="new_name" placeholder="<?= l('name', false) ?>" /></span>
       <button type="submit" /><?= l("create", false) ?></button>
     </div>
 

@@ -6,7 +6,7 @@ global $libreto;
 <head>
   <meta charset="utf-8">
   <title><?= $libreto->name() ?> - Libreto</title>
-  <link rel="stylesheet" href="/libreto/assets/style-reader.css">
+  <link rel="stylesheet" href="<?= $libreto->base_url() ?>/libreto/assets/style-reader.css">
   <style>
     <?= $libreto->pads()->css() ?>
   </style>
@@ -15,19 +15,13 @@ global $libreto;
   <main class="content">
     <?php
     if ($libreto->router()->pad()) :
-      ?>
-      <?= $libreto->pads()->selected()->html() ?>
-      <?php
+      echo $libreto->pads()->selected()->html();
     else:
-      ?>
-      <h1><?= $this->name() ?></h1>
-      <?php
+      echo '<h1>' . $this->name() . '</h1>';
       $pads = $this->pads()->children('visible');
       foreach($pads as $pad) :
-        ?>
-        <h2><?= $pad->name() ?></h2>
-        <div><?= $pad->html() ?></div>
-        <?php
+        echo '<h2>' . $pad->name() . '</h2>';
+        echo '<div>' . $pad->html() . '</div>';
       endforeach;
     endif;
     ?>

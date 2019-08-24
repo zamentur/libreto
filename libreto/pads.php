@@ -66,7 +66,7 @@ class Pads
   }
 
   public function first() {
-    $pads = $this->children();
+    $pads = $this->children('visible');
     if(array_key_exists(0, $pads)):
       return $pads[0];
     endif;
@@ -78,22 +78,6 @@ class Pads
       if($pad->selected()) { return $pad; }
     }
     return false;
-  }
-
-  public function selectActivePad() {
-
-    global $libreto;
-
-    // set default pad
-    $default = $this->first() ?: $this->find("help");
-
-    // set requested pad
-    $pad = $libreto->router()->pad() ?: $default;
-
-    $pad->select();
-
-    return $pad;
-
   }
 
 }

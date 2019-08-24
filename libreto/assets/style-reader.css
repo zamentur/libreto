@@ -62,3 +62,7 @@ img {
   margin: auto;
   display: block;
 }
+
+iframe {
+	border: none;
+}

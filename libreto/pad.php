@@ -72,11 +72,11 @@ class Pad
         $url = trim($this->options['url'], '/ ');
       else:
         $id = urlencode(strtolower($this->id));
-        $url = $libreto->url() . '/' . $id;
+        $url = $libreto->base_url() . '/' . $id;
       endif;
       $this->url = array(
-        "pad"   => $url,
-        "reader"    => "/reader/" . $id,
+        "pad"       => $url,
+        "reader"    => $libreto->base_url() . "/reader/" . $id,
       );
     else:
       if($this->options['url']):
@@ -88,7 +88,7 @@ class Pad
       endif;
       $this->url = array(
         "pad"       => $url . $libreto->options('pads_params'),
-        "reader"    => "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->id),
+        "reader"    => $libreto->base_url() . "/reader/" . urlencode($libreto->name()) . '/' . urlencode($this->id),
         "txt"       => $url . "/export/txt",
         "markdown"  => $url . "/export/markdown",
         "html"      => $url . "/export/html",
@@ -120,6 +120,23 @@ class Pad
 
   public function selected(){
     return $this->selected;
+  }
+
+  public function isEmpty(){
+    global $libreto;
+
+    if(!$this->txt()):
+      return true;
+    endif;
+
+    // If pad content == default_text, consider as empty
+    if($libreto->provider('default_text')):
+      if(strpos($this->txt(), $libreto->provider('default_text')) === 0 ) :
+        return true;
+      endif;
+    endif;
+
+    return false;
   }
 
   public function url($format = 'pad') {
@@ -210,7 +227,13 @@ class Pad
 
   public function js(){
 
-    $js = strip_tags(file_get_contents($this->url('txt')));
+    global $libreto;
+
+    if($this->isEmpty()):
+      return false;
+    endif;
+
+    $js = strip_tags(file_get_contents($this->url('txt'))) ?: false;
     return $js;
 
   }
